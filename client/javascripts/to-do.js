@@ -15,10 +15,13 @@ let controller = function() {
 
       // log the list of paragraph elements
       console.log($(".comments").html());
-
-
+      localStorage.setItem("toDoList", $(".comments").html());
     }
   };
+
+  if ($(".comments").html(localStorage.getItem("toDoList")) !== "") {
+    $(".comments").html(localStorage.getItem("toDoList"));
+  }
 
   $(".comment-input button").on("click", function(event) {
     addCommentFromInputBox();
